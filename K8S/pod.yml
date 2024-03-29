@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: microservices-flask-pod
+spec:
+  containers:
+    - name: microservices-flask
+      image: vikashkumar97/microservices-flask-api:latest
+      ports:
+      - containerPort: 8001
+
+# This Script Convert into docker run --name=microservices-flask -p 8001:8001 vikashkumar97/microservices-flask-api:latest

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservices-flask-pod
+  labels:
+    app: microservices-flask-pod
+    namespace: my-application
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: microservices-flask-pod
+  template:
+    metadata:
+      labels:
+        app: microservices-flask-pod
+    spec:
+      containers:
+      - name: microservices-flask-pod
+        image: vikashkumar97/microservices-flask-api:latest
+        ports:
+        - containerPort: 8001
