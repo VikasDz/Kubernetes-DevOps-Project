@@ -15,18 +15,22 @@ Cluster => cluster is a group of servers and other resources that act like a sin
 ---------------------------------------- Kubeadm Installation ------------------------------------------ 
 
 -------------------------------------- Both Master & Worker Node ---------------------------------------
-sudo su
-apt update -y
-apt install docker.io -y
+# using 'sudo su' is not a good practice.
+sudo apt update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+sudo apt install docker.io -y
 
-systemctl start docker
-systemctl enable docker
+sudo systemctl enable --now docker # enable and start in single command.
 
-curl -fsSL "https://packages.cloud.google.com/apt/doc/apt-key.gpg" | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/kubernetes-archive-keyring.gpg
-echo 'deb https://packages.cloud.google.com/apt kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
+# Adding GPG keys.
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
-apt update -y
-apt install kubeadm=1.20.0-00 kubectl=1.20.0-00 kubelet=1.20.0-00 -y
+# Add the repository to the sourcelist.
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+sudo apt update 
+sudo apt install -y kubeadm=1.28.1-1.1 kubelet=1.28.1-1.1 kubectl=1.28.1-1.1 -y
+
 
 # To connect with cluster execute above commands on master node and worker node respectively
 --------------------------------------------- Master Node -------------------------------------------------- 
