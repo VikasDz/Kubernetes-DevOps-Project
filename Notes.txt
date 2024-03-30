@@ -56,6 +56,7 @@ kubeadm reset pre-flight checks
 -----> Paste the Join command on worker node and append `--v=5` at end
 
 #To verify cluster connection  
+open 6443 inBound Rules in EC2 Machine
 ---------------------------------------on Master Node-----------------------------------------
 
 kubectl get nodes 
