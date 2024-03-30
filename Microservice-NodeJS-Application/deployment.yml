@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservices-nodejs-pod
+  labels:
+    app: microservices-nodejs-pod
+    namespace: my-application
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: microservices-nodejs-pod
+  template:
+    metadata:
+      labels:
+        app: microservices-nodejs-pod
+    spec:
+      containers:
+      - name: microservices-nodejs-pod
+        image: vikashkumar97/microservice-nodejs-app:latest
+        ports:
+        - containerPort: 3000
