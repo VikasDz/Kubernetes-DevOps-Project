@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: microservices-nodejs-pod
+  namespace: my-application
 spec:
   containers:
     - name: microservices-nodejs-pod
