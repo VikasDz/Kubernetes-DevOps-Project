@@ -6,6 +6,6 @@ metadata:
 spec:
   containers:
     - name: microservices-nodejs-pod
-      image: vikashkumar97/microservice-nodejs-app:latest
+      image: vikashkumar97/microservice-nodejs-app:v1.0
       ports:
       - containerPort: 3000
