@@ -139,10 +139,10 @@ Note :
     If You want to Go docker Inside Container Then Use (sudo docker exec -it container_id bash) in Worker Node
     Test Your Pod or Docker Container Which is Working Fine or Not (curl -L http://127.0.0.1:8000) in Worker Node
     Namespace is a logical group where we define which pods are belong to which group. => in Master Node
-    => kubctl get namespaces
-    => kubctl get pods -n=kube-system (Where You get all the services of Master Node) 
+    => kubectl get namespaces
+    => kubectl get pods -n=kube-system (Where You get all the services of Master Node) 
     Create own Namespace
-    => kubctl create namespaces my-application
+    => kubectl create namespace my-application
     => vim pod.yml
     apiVersion: v1
     kind: Pod
